@@ -1205,8 +1205,8 @@ ns_clip_to_row (struct window *w, struct glyph_row *row,
 #else
       self.image = [NSImage imageNamed:NSImageNameCaution];
       [self.image setScalesWhenResized:YES];
-      [self.image setSize:NSMakeSize(self.image.size.width * 5,
-                                     self.image.size.height * 5)];
+      [self.image setSize:NSMakeSize(self.image.size.width * ns_visual_bell_size,
+                                     self.image.size.height * ns_visual_bell_size)];
 #endif
     }
   return self;
@@ -8508,6 +8508,10 @@ syms_of_nsterm (void)
   Fput (Qmeta, Qmodifier_value, make_number (meta_modifier));
   Fput (Qsuper, Qmodifier_value, make_number (super_modifier));
   Fput (Qcontrol, Qmodifier_value, make_number (ctrl_modifier));
+
+  DEFVAR_INT ("ns-visual-bell-size", ns_visual_bell_size,
+              "The size factor to display the visual bell icon");
+  ns_visual_bell_size = 5;
 
   DEFVAR_LISP ("ns-input-file", ns_input_file,
               "The file specified in the last NS event.");
