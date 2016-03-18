@@ -1174,7 +1174,7 @@ ns_clip_to_row (struct window *w, struct glyph_row *row,
 
 @interface EmacsBell : NSImageView
 {
-  // Number of currently active bell:s.
+  // Number of currently active bells.
   unsigned int nestCount;
   bool isAttached;
 }
